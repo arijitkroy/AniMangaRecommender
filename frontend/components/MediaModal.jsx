@@ -8,7 +8,9 @@ export default function MediaModal({ isOpen, onClose, loading, error, media }) {
           className="absolute top-4 right-4 text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center transition-colors z-10"
           aria-label="Close Modal"
         >
-          âœ•
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          </svg>
         </button>
         <div className="p-8">
           {loading ? (
