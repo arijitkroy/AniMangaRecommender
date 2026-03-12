@@ -1,4 +1,4 @@
-# Anime & Manga Recommendation System
+# AniManga Recommender: Anime & Manga Recommendation System
 
 This project is a complete anime and manga recommendation system with a Flask backend API and a Next.js frontend interface. It uses content-based filtering to provide personalized recommendations based on genres, themes, and demographics.
 
