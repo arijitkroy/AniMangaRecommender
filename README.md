@@ -129,9 +129,29 @@ The system uses data from MyAnimeList, including:
 
 ## Quick Start
 
-To quickly start the entire application, you can use one of the provided startup scripts:
+To quickly start the entire application, you can use one of the provided startup scripts from the repository root:
 
-- On Windows: Run `start.bat`
-- On Linux/Mac: Run `start.sh` (make it executable with `chmod +x start.sh` first)
+### Linux/macOS
+```bash
+chmod +x start.sh
+./start.sh
+```
+- Validates that `python3` and `npm` are installed.
+- Installs backend and frontend dependencies.
+- Starts backend and frontend servers.
+- Automatically stops the backend process when the script exits.
 
-These scripts will automatically install dependencies and start both the backend and frontend servers.
+### Windows
+```bat
+start.bat
+```
+- Validates that `python` and `node` are installed.
+- Installs backend and frontend dependencies.
+- Starts backend in a separate terminal window and frontend in the current one.
+- If the frontend stops, close the **Backend Server** window manually.
+
+## Startup Script Notes
+
+- Backend runs on `http://localhost:5000`.
+- Frontend runs on `http://localhost:3000`.
+- If you prefer manual startup, follow the backend/frontend setup sections above.

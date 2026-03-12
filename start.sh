@@ -1,15 +1,19 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-# Anime & Manga Recommendation System - Startup Script
+set -euo pipefail
 
-echo "Starting Anime & Manga Recommendation System..."
+# AniMangaRecommender - Startup Script
 
-# Function to check if a command exists
+echo "Starting AniMangaRecommender..."
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BACKEND_DIR="$ROOT_DIR/backend"
+FRONTEND_DIR="$ROOT_DIR/frontend"
+
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
-# Check if required commands are available
 if ! command_exists python3; then
     echo "Error: python3 is not installed"
     exit 1
@@ -20,23 +24,34 @@ if ! command_exists npm; then
     exit 1
 fi
 
-# Start backend in background
-echo "Starting backend server..."
-cd backend
-pip install -r requirements.txt
-python app.py &
+cleanup() {
+    if [[ -n "${BACKEND_PID:-}" ]] && kill -0 "$BACKEND_PID" 2>/dev/null; then
+        echo "Stopping backend server (PID: $BACKEND_PID)..."
+        kill "$BACKEND_PID" 2>/dev/null || true
+        wait "$BACKEND_PID" 2>/dev/null || true
+    fi
+}
 
-# Store the process ID
+trap cleanup EXIT INT TERM
+
+echo "Installing backend dependencies..."
+python3 -m pip install -r "$BACKEND_DIR/requirements.txt"
+
+echo "Starting backend server..."
+(
+    cd "$BACKEND_DIR"
+    python3 app.py
+) &
 BACKEND_PID=$!
 
-# Give backend a moment to start
 sleep 3
 
-# Start frontend
-echo "Starting frontend server..."
-cd ../frontend
-npm install
-npm run dev
+echo "Installing frontend dependencies..."
+(
+    cd "$FRONTEND_DIR"
+    npm install
+)
 
-# Kill backend when frontend is stopped
-kill $BACKEND_PID
+echo "Starting frontend server..."
+cd "$FRONTEND_DIR"
+npm run dev
