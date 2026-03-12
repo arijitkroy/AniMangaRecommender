@@ -1,7 +1,7 @@
+import os
 import ast
 import re
 import pandas as pd
-import kagglehub
 from sklearn.feature_extraction.text import TfidfVectorizer
 
 def normalize_text(text):
@@ -11,15 +11,24 @@ def normalize_text(text):
     return re.sub(r'\s+', ' ', text).strip()
 
 def load_datasets():
-    print("Loading datasets dynamically from kagglehub...")
-    path = kagglehub.dataset_download("andreuvallhernndez/myanimelist")
+    print("Loading datasets from local Datasets folder...")
+    
+    # Resolve path to the Datasets folder relative to this file's directory
+    # (assuming this file is in backend/ and Datasets/ is in the repo root)
+    backend_dir = os.path.dirname(os.path.abspath(__file__))
+    root_dir = os.path.dirname(backend_dir)
+    datasets_dir = os.path.join(root_dir, "Datasets")
+    
+    anime_path = os.path.join(datasets_dir, "anime.csv")
+    manga_path = os.path.join(datasets_dir, "manga.csv")
+
     anime_df = pd.read_csv(
-        f"{path}/anime.csv",
+        anime_path,
         encoding_errors="ignore",
         on_bad_lines="skip"
     )
     manga_df = pd.read_csv(
-        f"{path}/manga.csv",
+        manga_path,
         encoding_errors="ignore",
         on_bad_lines="skip"
     )

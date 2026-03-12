@@ -5,6 +5,8 @@ services:
     build: ./backend
     ports:
       - "5000:5000"
+    volumes:
+      - ./Datasets:/Datasets
     environment:
       - FLASK_ENV=development
 

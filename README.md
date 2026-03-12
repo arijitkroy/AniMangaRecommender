@@ -4,49 +4,58 @@ This project is a complete anime and manga recommendation system with a Flask ba
 
 ## Project Structure
 
-```
+```text
 RecommendationSystem/
 ├── backend/                 # Flask API backend
-│   ├── app.py               # Main Flask application
-│   ├── requirements.txt     # Python dependencies
-│   └── README.md            # Backend documentation
-└── frontend/                # Next.js frontend
-    ├── pages/               # Next.js pages
-    ├── styles/              # CSS and Tailwind config
-    ├── package.json         # Node.js dependencies
-    └── README.md            # Frontend documentation
+│   ├── routes/              # Modularized Flask Blueprints (anime, manga, search, status)
+│   ├── app.py               # Main API Application Entry
+│   ├── data_loader.py       # Kagglehub dynamic dataset loading and preprocessing
+│   ├── data_store.py        # Global application state dataset storage
+│   └── requirements.txt     # Python dependencies
+├── frontend/                # Next.js frontend
+│   ├── pages/               # Next.js page routes (index, _app, _document)
+│   ├── components/          # Reusable modular React UI components
+│   ├── hooks/               # Custom React hooks (useMediaSearch)
+│   ├── services/            # API client service configs
+│   └── package.json         # Node.js dependencies
+├── start.sh                 # Linux/macOS Startup Script
+└── start.bat                # Windows Startup Script
 ```
 
 ## Features
 
-### Backend API (Flask)
+### Backend API (Flask - Modularized)
 - RESTful API for anime/manga recommendations
+- Modular `Blueprint` routing configuration
+- **Dynamic Kagglehub** fetching to always load the latest datasets on startup
+- Robust word-boundary and normalized string-matching fallback systems
 - Content-based filtering using TF-IDF and cosine similarity
-- Endpoints for:
-  - Title-based recommendations
-  - Top-rated media lists
-  - Genre-based search
+- Deep dataset inspection APIs (`/details/`)
 
-### Frontend Interface (Next.js)
-- Modern, responsive UI with dark theme
+### Frontend Interface (Next.js - Modularized)
+- Modern, responsive React UI rebuilt from the ground up for readability
+- Next.js Proxy rewrites hiding the Backend API port from public exposure
+- Intelligent Modals allowing detailed inspection of specific media entries
+- Built-in paginated view sorting
 - Search by title for personalized recommendations
 - Browse top-rated anime and manga
-- Search by genre combinations
-- Tabbed interface for different result views
+- Tabbed interface separating Title, Genre, and Top Media navigation
 
 ## Technologies Used
 
 ### Backend
-- Flask (Python web framework)
+- Flask & Flask-CORS (Python web and API framework)
 - Pandas (Data processing)
-- Scikit-learn (Machine learning)
+- Kagglehub (Dynamic dataset synchronization)
+- Scikit-learn (Machine learning algorithms)
 - NumPy (Numerical computing)
 
 ### Frontend
 - Next.js (React framework)
-- JavaScript (JSX)
-- Tailwind CSS (Styling)
-- Axios (HTTP client)
+- Javascript (`.jsx` implementation)
+- Custom Hooks (`useMediaSearch`)
+- Tailwind CSS (Deep gradient styling & responsive grids)
+- Axios (HTTP client via Next.js server proxy)
 
 ## Setup Instructions
 

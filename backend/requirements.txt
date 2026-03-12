@@ -3,4 +3,3 @@ flask-cors
 pandas
 numpy
 scikit-learn
-kagglehub[pandas-datasets]
