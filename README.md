@@ -27,7 +27,7 @@ RecommendationSystem/
 ### Backend API (Flask - Modularized)
 - RESTful API for anime/manga recommendations
 - Modular `Blueprint` routing configuration
-- **Dynamic Kagglehub** fetching to always load the latest datasets on startup
+- Robust CSV dataset loading from the local `Datasets/` directory
 - Robust word-boundary and normalized string-matching fallback systems
 - Content-based filtering using TF-IDF and cosine similarity
 - Deep dataset inspection APIs (`/details/`)
@@ -46,7 +46,6 @@ RecommendationSystem/
 ### Backend
 - Flask & Flask-CORS (Python web and API framework)
 - Pandas (Data processing)
-- Kagglehub (Dynamic dataset synchronization)
 - Scikit-learn (Machine learning algorithms)
 - NumPy (Numerical computing)
 
@@ -115,7 +114,7 @@ RecommendationSystem/
 
 The recommendation system uses content-based filtering:
 
-1. **Data Processing**: Anime and manga data is dynamically fetched using `kagglehub` and preprocessed.
+1. **Data Processing**: Anime and manga data is robustly parsed and loaded from local `.csv` files stored within the `Datasets/` directory.
 2. **Feature Engineering**: TF-IDF vectors are created from combined genre, theme, and demographic features
 3. **Similarity Calculation**: Cosine similarity is used to find items with similar content profiles
 4. **Recommendations**: Top similar items are returned as recommendations
