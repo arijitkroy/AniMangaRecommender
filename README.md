@@ -8,6 +8,7 @@ This project is a complete anime and manga recommendation system with a Flask ba
 RecommendationSystem/
 ├── backend/                 # Flask API backend
 │   ├── routes/              # Modularized Flask Blueprints (anime, manga, search, status)
+|   ├── datasets/            # Datasets folder
 │   ├── app.py               # Main API Application Entry
 │   ├── data_loader.py       # Kagglehub dynamic dataset loading and preprocessing
 │   ├── data_store.py        # Global application state dataset storage

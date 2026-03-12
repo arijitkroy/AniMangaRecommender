@@ -1,3 +1,4 @@
+import Head from "next/head";
 import MediaModal from "../components/MediaModal";
 import RecommendationsTab from "../components/RecommendationsTab";
 import TopMediaTab from "../components/TopMediaTab";
@@ -39,6 +40,11 @@ export default function Home() {
   } = useMediaSearch();
   return (
     <div className="min-h-screen py-8 px-4">
+      <Head>
+        <title>AniMangaRecommender</title>
+        <meta name="description" content="Discover your next favorite anime or manga!" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <div className="max-w-6xl mx-auto">
         <header className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold mb-4 pb-2 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">

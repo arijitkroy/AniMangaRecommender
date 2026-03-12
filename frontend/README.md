@@ -1,23 +1,32 @@
-```
-# Anime & Manga Recommendation System - Frontend
+# AniMangaRecommender - Frontend App
 
-This is the frontend interface for the Anime & Manga Recommendation System, built with Next.js, React, and Tailwind CSS.
+This is the Next.js frontend interface for the AniMangaRecommender application, featuring a deeply responsive design, modularized architecture, and an integrated backend proxy.
 
 ## Features
 
-- Search for anime/manga recommendations by title
-- Browse top-rated anime and manga
-- Search by genre combinations
-- Responsive design for all device sizes
-- Modern UI with dark theme
+- **Next.js Proxy Routing**: Securely forwards all `/api/*` fetch requests directly through the Next server (`next.config.js`), completely hiding the local `localhost:5000` Flask endpoint from the client browser.
+- **Deeply Modular Components**: Clean, separated architecture leveraging independent UI constructs (Modals, Nav Tabs, Cards).
+- **Custom React Hooks**: Centralized data management and API fetch flows through a dedicated `useMediaSearch`.
+- **Search capabilities**: Lookup anime/manga by title natively or match by genre matrices.
+- **Top Media Exploration**: Check out the top-rated datasets directly.
+- **Custom Favicon**: Embedded a globally styled cyber-neon "AM" favicon.
 
 ## Technologies Used
 
-- Next.js 13
-- React 18
-- JavaScript (JSX)
-- Tailwind CSS
-- Axios for API requests
+- **Framework**: Next.js 13
+- **Library**: React 18
+- **Language**: JavaScript (JSX)
+- **Styling**: Tailwind CSS
+- **HTTP Client**: Axios (interacting with Next.js Rewrite Proxies)
+
+## Configuration
+
+To establish communication with the backend Flask API, the Next.js app utilizes an environment variable that dictates its proxy target. This defaults to `127.0.0.1:5000`.
+
+To override this, create a `.env.local` file in the `frontend/` root:
+```env
+API_BASE=http://your-remote-api-url:5000/api
+```
 
 ## Getting Started
 
@@ -31,31 +40,31 @@ This is the frontend interface for the Anime & Manga Recommendation System, buil
    npm run dev
    ```
 
-3. Open [http://localhost:3000](http://localhost:3000) in your browser
+3. Open [http://localhost:3000](http://localhost:3000) inside your web browser.
 
 ## Project Structure
 
-```
+```text
 frontend/
-├── pages/           # Next.js pages
-├── styles/          # Global styles and Tailwind config
-├── public/          # Static assets
-├── components/      # React components (to be created)
-└── ...
+├── components/      # Separated modular React UI components
+├── hooks/           # Custom React hooks (useMediaSearch)
+├── pages/           # Next.js pages/routing (index, _app)
+├── public/          # Static assets (favicon.png)
+├── services/        # API client bindings
+├── styles/          # Tailwind definitions (globals.css)
+├── .env.local       # Local backend URL config
+└── next.config.js   # API rewrite proxy routing & Image domains
 ```
-
-## API Integration
-
-The frontend connects to the Flask backend API running on `http://localhost:5000`. Make sure the backend is running before starting the frontend.
 
 ## Deployment
 
-To build for production:
+To compile the application bundle for production environments:
 ```bash
 npm run build
 ```
 
-To start production server:
+To start the hosted compiled server:
 ```bash
 npm start
 ```
+
