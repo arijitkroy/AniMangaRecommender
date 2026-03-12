@@ -12,12 +12,9 @@ def normalize_text(text):
 
 def load_datasets():
     print("Loading datasets from local Datasets folder...")
-    
-    # Resolve path to the Datasets folder relative to this file's directory
-    # (assuming this file is in backend/ and Datasets/ is in the repo root)
-    backend_dir = os.path.dirname(os.path.abspath(__file__))
-    root_dir = os.path.dirname(backend_dir)
-    datasets_dir = os.path.join(root_dir, "Datasets")
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    datasets_dir = os.path.join(base_dir, "datasets")
     
     anime_path = os.path.join(datasets_dir, "anime.csv")
     manga_path = os.path.join(datasets_dir, "manga.csv")
@@ -72,7 +69,7 @@ def _preprocess_data(anime_df, manga_df):
         lambda x: ast.literal_eval(x) if isinstance(x, str) else []
     )
     return anime_df, manga_df
-    
+
 def _create_feature_vectors(anime_df, manga_df):
     anime_df["combined_features"] = anime_df.apply(
         lambda row: " ".join(row["genres"] + row["themes"] + row["demographics"]),
