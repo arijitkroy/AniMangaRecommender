@@ -4,12 +4,13 @@ This is the Next.js frontend interface for the AniMangaRecommender application, 
 
 ## Features
 
-- **Next.js Proxy Routing**: Securely forwards all `/api/*` fetch requests directly through the Next server (`next.config.js`), completely hiding the local `localhost:5000` Flask endpoint from the client browser.
-- **Deeply Modular Components**: Clean, separated architecture leveraging independent UI constructs (Modals, Nav Tabs, Cards).
-- **Custom React Hooks**: Centralized data management and API fetch flows through a dedicated `useMediaSearch`.
-- **Search capabilities**: Lookup anime/manga by title natively or match by genre matrices.
-- **Top Media Exploration**: Check out the top-rated datasets directly.
-- **Custom Favicon**: Embedded a globally styled cyber-neon "AM" favicon.
+- **Premium Glassmorphism UI**: Modern aesthetic featuring backdrop-blur, subtle borders, and background glow effects.
+- **Mobile Responsiveness**: Optimized layouts for all screen sizes, including stacked forms and touch-friendly controls.
+- **Tactile Feedback**: Smooth micro-animations and active states for a premium interactive feel.
+- **Next.js Proxy Routing**: Securely forwards all `/api/*` fetch requests, hiding the Flask endpoint.
+- **Deeply Modular Components**: Separated architecture for Modals, Nav Tabs, and Cards.
+- **Search capabilities**: Lookup anime/manga by title (bilingual) or match by genre matrices.
+- **Top Media Exploration**: Browse top-rated datasets directly.
 
 ## Technologies Used
 

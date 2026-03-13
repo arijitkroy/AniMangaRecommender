@@ -29,18 +29,18 @@ RecommendationSystem/
 - RESTful API for anime/manga recommendations
 - Modular `Blueprint` routing configuration
 - Robust CSV dataset loading from the local `Datasets/` directory
-- Robust word-boundary and normalized string-matching fallback systems
+- **Bilingual & Synonym Search**: Support for Romaji, English titles, and common abbreviations (e.g., "AOT").
+- **Positional Indexing**: Enhanced accuracy and stability with position-based data retrieval.
 - Content-based filtering using TF-IDF and cosine similarity
 - Deep dataset inspection APIs (`/details/`)
 
-### Frontend Interface (Next.js - Modularized)
-- Modern, responsive React UI rebuilt from the ground up for readability
-- Next.js Proxy rewrites hiding the Backend API port from public exposure
-- Intelligent Modals allowing detailed inspection of specific media entries
-- Built-in paginated view sorting
-- Search by title for personalized recommendations
-- Browse top-rated anime and manga
-- Tabbed interface separating Title, Genre, and Top Media navigation
+### Frontend Interface (Next.js - Premium UI)
+- **Glassmorphism Design**: Modern, premium aesthetic with backdrop-blur and subtle borders.
+- **Mobile Optimized**: Fully responsive layout with stacked forms and optimized touch targets.
+- **Micro-animations**: Tactile feedback and smooth transitions for a high-end feel.
+- Next.js Proxy rewrites hiding the Backend API port from public exposure.
+- Intelligent Modals allowing detailed inspection of specific media entries.
+- Search by title for personalized recommendations or browse by genre.
 
 ## Technologies Used
 
@@ -133,7 +133,6 @@ The system uses data from MyAnimeList, including:
 - User authentication and personalized lists
 - Collaborative filtering for improved recommendations
 - Advanced search filters
-- Mobile app version
 - Recommendation explanations
 
 ## Quick Start

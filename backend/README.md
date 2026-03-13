@@ -6,8 +6,10 @@ This is the Flask API backend for the Anime & Manga Recommendation System. It pr
 ## Features
 
 - Get anime/manga recommendations based on title or ID
+- **Bilingual Support**: Search by Romaji, English titles, or synonyms
+- **Positional Indexing**: Stable and accurate media retrieval
 - Retrieve top-rated anime and manga
-- Search by genre combinations
+- Search by genre / theme / demographic combinations
 - Content-based filtering using TF-IDF and cosine similarity
 
 ## Technologies Used
