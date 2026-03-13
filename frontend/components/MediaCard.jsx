@@ -1,10 +1,14 @@
 export default function MediaCard({ item, onClick }) {
   return (
     <div
-      className="card mb-4 cursor-pointer hover:bg-gray-800 transition-colors border border-transparent hover:border-purple-500 shadow-md hover:shadow-purple-900/40"
+      className="card mb-4 cursor-pointer hover:border-purple-500/50"
       onClick={() => onClick(item)}
     >
-      <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+      <h3 className="text-lg sm:text-xl font-bold mb-2 text-gray-100 group-hover:text-purple-400 transition-colors">
+        {item.title_english && item.title_english !== item.title 
+          ? `${item.title_english} (${item.title})`
+          : item.title}
+      </h3>
       <div className="flex flex-wrap gap-2 mb-3">
         <span className="badge badge-genre">{item.type}</span>
         <span className="badge" style={{ backgroundColor: "#f59e0b" }}>
@@ -25,6 +29,11 @@ export default function MediaCard({ item, onClick }) {
         {(item.themes || []).slice(0, 3).map((theme, index) => (
           <span key={index} className="badge badge-theme">
             {theme}
+          </span>
+        ))}
+        {(item.demographics || []).slice(0, 3).map((demo, index) => (
+          <span key={index} className="badge badge-demographic">
+            {demo}
           </span>
         ))}
       </div>

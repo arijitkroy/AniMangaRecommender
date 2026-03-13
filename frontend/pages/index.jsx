@@ -46,11 +46,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <div className="max-w-6xl mx-auto">
-        <header className="text-center mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 pb-2 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text">
+        <header className="text-center mb-8 md:mb-12">
+          <h1 className="text-3xl md:text-5xl font-bold mb-4 pb-2 bg-gradient-to-r from-purple-400 via-pink-500 to-red-500 text-transparent bg-clip-text leading-tight">
             AniMangaRecommender
           </h1>
-          <p className="text-l text-gray-300 max-w-2xl mx-auto">
+          <p className="text-sm md:text-lg text-gray-300 max-w-2xl mx-auto px-4">
             Discover your next favorite anime or manga with our AI-powered
             recommendation system
           </p>

@@ -1,8 +1,8 @@
 export default function NavigationTabs({ activeTab, handleTabChange, fetchTopMedia }) {
   return (
-    <div className="flex border-b border-gray-700 mb-8 overflow-x-auto">
+    <div className="flex border-b border-gray-700 mb-8 overflow-x-auto scrollbar-hide">
       <button
-        className={`pb-3 px-6 font-medium whitespace-nowrap ${
+        className={`pb-3 px-4 md:px-6 font-medium whitespace-nowrap transition-colors ${
           activeTab === "recommendations"
             ? "text-purple-400 border-b-2 border-purple-400"
             : "text-gray-400 hover:text-gray-200"
@@ -12,7 +12,7 @@ export default function NavigationTabs({ activeTab, handleTabChange, fetchTopMed
         Title Search
       </button>
       <button
-        className={`pb-3 px-6 font-medium whitespace-nowrap ${
+        className={`pb-3 px-4 md:px-6 font-medium whitespace-nowrap transition-colors ${
           activeTab === "genres"
             ? "text-purple-400 border-b-2 border-purple-400"
             : "text-gray-400 hover:text-gray-200"
@@ -22,7 +22,7 @@ export default function NavigationTabs({ activeTab, handleTabChange, fetchTopMed
         Genre Search
       </button>
       <button
-        className={`pb-3 px-6 font-medium whitespace-nowrap ${
+        className={`pb-3 px-4 md:px-6 font-medium whitespace-nowrap transition-colors ${
           activeTab === "top"
             ? "text-purple-400 border-b-2 border-purple-400"
             : "text-gray-400 hover:text-gray-200"

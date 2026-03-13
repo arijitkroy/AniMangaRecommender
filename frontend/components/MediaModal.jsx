@@ -2,17 +2,17 @@ export default function MediaModal({ isOpen, onClose, loading, error, media }) {
   if (!isOpen) return null;
   return (
     <div className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 overflow-y-auto backdrop-blur-sm">
-      <div className="bg-gray-900 rounded-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative border border-gray-700 shadow-2xl custom-scrollbar animate-fade-in">
+      <div className="bg-gray-950 rounded-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative border border-white/10 shadow-3xl custom-scrollbar animate-fade-in">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 text-gray-400 hover:text-white bg-gray-800 hover:bg-gray-700 rounded-full w-8 h-8 flex items-center justify-center transition-colors z-10"
+          className="absolute top-4 right-4 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center transition-all z-50 active:scale-90"
           aria-label="Close Modal"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+          <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
           </svg>
         </button>
-        <div className="p-8">
+        <div className="p-4 sm:p-8">
           {loading ? (
             <div className="flex flex-col items-center justify-center py-20">
               <div className="loading-spinner mb-4"></div>
@@ -26,23 +26,23 @@ export default function MediaModal({ isOpen, onClose, loading, error, media }) {
             </div>
           ) : media ? (
             <div className="animate-slide-up">
-              <h2 className="text-3xl font-bold mb-1 text-purple-400 pr-8">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-1 text-purple-400 pr-8">
                 {media.title}
               </h2>
               {media.title_english && media.title_english !== media.title && (
-                <p className="text-gray-400 mb-6 italic">
+                <p className="text-gray-400 mb-6 italic text-sm sm:text-base">
                   {media.title_english}
                 </p>
               )}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 mt-6">
-                <div className="col-span-1 border-r border-gray-800 pr-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 mt-6">
+                <div className="col-span-1 md:border-r md:border-gray-800 md:pr-6">
                   <div className="space-y-4">
                     {media.main_picture && (
-                      <div className="mb-6 rounded-lg overflow-hidden border border-gray-700 shadow-lg relative">
+                      <div className="mb-6 rounded-lg overflow-hidden border border-gray-700 shadow-lg relative max-w-[240px] mx-auto md:max-w-full">
                         <img
                           src={media.main_picture}
                           alt={`Cover for ${media.title}`}
-                          className="w-full h-auto object-cover max-h-[400px]"
+                          className="w-full h-auto object-cover"
                         />
                       </div>
                     )}
@@ -147,11 +147,11 @@ export default function MediaModal({ isOpen, onClose, loading, error, media }) {
                 </div>
                 <div className="col-span-1 md:col-span-2 space-y-6">
                   {media.synopsis && (
-                    <div>
-                      <h3 className="text-lg font-bold mb-3 text-gray-200 border-b border-gray-800 pb-2">
+                    <div className="bg-white/5 p-4 rounded-xl border border-white/5">
+                      <h3 className="text-lg font-bold mb-3 text-purple-400/80 uppercase tracking-wider text-xs border-b border-white/10 pb-2">
                         Synopsis
                       </h3>
-                      <p className="text-sm text-gray-300 leading-relaxed whitespace-pre-wrap">
+                      <p className="text-sm sm:text-base text-gray-300 leading-relaxed whitespace-pre-wrap">
                         {media.synopsis
                           .replace("[Written by MAL Rewrite]", "")
                           .trim()}

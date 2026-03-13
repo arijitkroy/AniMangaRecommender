@@ -88,12 +88,20 @@ export default function useMediaSearch() {
       setLoading(true);
       if (mediaType === "anime") {
         const data = await api.getAnimeRecommendations(searchTerm, 120);
-        setRecommendations(data.recommendations);
-        setMatchedTitle(data.input_anime?.title || searchTerm);
+        setRecommendations(data.recommendations || []);
+        const input = data.input_anime;
+        const displayTitle = input?.title_english && input.title_english !== input.title 
+          ? `${input.title_english} (${input.title})`
+          : (input?.title || searchTerm);
+        setMatchedTitle(displayTitle);
       } else {
         const data = await api.getMangaRecommendations(searchTerm, 120);
-        setRecommendations(data.recommendations);
-        setMatchedTitle(data.input_manga?.title || searchTerm);
+        setRecommendations(data.recommendations || []);
+        const input = data.input_manga;
+        const displayTitle = input?.title_english && input.title_english !== input.title 
+          ? `${input.title_english} (${input.title})`
+          : (input?.title || searchTerm);
+        setMatchedTitle(displayTitle);
       }
       setActiveTab("recommendations");
       setCurrentPage(1);

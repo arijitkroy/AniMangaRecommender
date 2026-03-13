@@ -10,7 +10,7 @@ export default function SearchForms({
   handleGenreSearch,
 }) {
   return (
-    <div className="bg-background-card rounded-xl p-6">
+    <div className="card bg-white/5 border-white/10 p-4 sm:p-8 shadow-xl mb-8">
       <div className="mb-4">
         <label htmlFor="media-type" className="block text-sm font-medium mb-2">
           Select Media Type
@@ -30,7 +30,7 @@ export default function SearchForms({
           <label htmlFor="search" className="block text-sm font-medium mb-2">
             Find Recommendations by Title
           </label>
-          <form onSubmit={handleSearch} className="flex gap-2 max-w-2xl">
+          <form onSubmit={handleSearch} className="flex flex-col sm:flex-row gap-2 max-w-2xl">
             <input
               type="text"
               id="search"
@@ -39,7 +39,7 @@ export default function SearchForms({
               placeholder={`Enter ${mediaType} title...`}
               className="input flex-1"
             />
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary whitespace-nowrap">
               Search
             </button>
           </form>
@@ -51,9 +51,9 @@ export default function SearchForms({
             htmlFor="genre-search"
             className="block text-sm font-medium mb-2"
           >
-            Search by Genre (comma separated)
+            Search by Genre / Theme / Demographic (comma separated)
           </label>
-          <form onSubmit={handleGenreSearch} className="flex gap-2 max-w-2xl">
+          <form onSubmit={handleGenreSearch} className="flex flex-col sm:flex-row gap-2 max-w-2xl">
             <input
               type="text"
               id="genre-search"
@@ -62,7 +62,7 @@ export default function SearchForms({
               placeholder="e.g., Action, Adventure, Fantasy"
               className="input flex-1"
             />
-            <button type="submit" className="btn btn-secondary">
+            <button type="submit" className="btn btn-secondary whitespace-nowrap">
               Find by Genre
             </button>
           </form>
