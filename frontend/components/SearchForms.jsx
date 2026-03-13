@@ -63,7 +63,7 @@ export default function SearchForms({
               className="input flex-1"
             />
             <button type="submit" className="btn btn-secondary whitespace-nowrap">
-              Find by Genre
+              Search
             </button>
           </form>
         </div>
